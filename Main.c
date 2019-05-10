@@ -69,10 +69,9 @@ extern unsigned int fullscreen_buffer[272][480];
 extern unsigned int clear_buffer[272][100];
 
 void Main(void)
-{	
-											/*********/
-	MMU_Init()	;						/*driver init*/
-	Uart_Init(115200);				/*********/
+{
+	MMU_Init();					/*driver init*/
+	Uart_Init(115200);				
 	Graphic_Init();
 	SWITCH_Port_Init();
 	Timer_Init();	
@@ -102,23 +101,10 @@ void game_over(void)  /*timer over OR  -Score- less than -100*/
 	rINTSUBMSK |= (0x1<<9);		//touch off
 	rINTMSK1 |= (0x1<<31);
 	
-	// if(score> first_score)
-	// {
-	// 	third_score = second_score;
-	// 	second_score = first_score;
-	// 	first_score = score;		
-	// }		
-	// else if(score> second_score)
-	// {
-	// 	third_score = second_score;
-	// 	second_score = score;
-	// }		
-	// else if(score> third_score)
-	// 	third_score = score;
 	if(my_clear==0)
-	Lcd_Puts_big(168,40,0xffff,fullscreen_buffer,"GAME OVER");
+	 Lcd_Puts_big(168,40,0xffff,fullscreen_buffer,"GAME OVER");
 	else
-	Lcd_Puts_big(168,60,0x0000,fullscreen_buffer," CLEAR ");
+	 Lcd_Puts_big(168,60,0x0000,fullscreen_buffer," CLEAR ");
 
 	Lcd_Printf(198,126,0xFFFF,fullscreen_buffer,"PERFECT : %d",Perfect); /*Print Result*/
 	Lcd_Printf(198,152,0xFFFF,fullscreen_buffer,"MISS : %d",Miss);

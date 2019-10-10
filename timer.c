@@ -261,7 +261,7 @@ void timer2_handler(void)
 		else
 			start_x2 = 480+temp_start_x1;
 	}
-	if(score<-90)
+	if(score<-100)
 	{
 		game_over();
 	}
